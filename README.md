@@ -1,10 +1,7 @@
 Sorting Visualiser using HTML/CSS/JS
 
 Following Sorting Algorithms can be visualised
-- Bubble Sort
-- Quick Sort
-- Insertion Sort
-- Selection Sort
+Bubble Sort, Quick Sort, Insertion Sort, Selection Sort
 
 - Shuffle Array creates a completely new array!
 - Please wait till the current sort finishes before you start the next one. Some features are yet to be incorporated. 
