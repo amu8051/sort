@@ -11,5 +11,4 @@ Try it out: https://633588829687fb162cb5653f--heroic-frangipane-2de2ab.netlify.a
 Note: Red element in Quick Sort is pivot element of each recursion
 
 
-[Screenshot (1152)](https://user-images.githubusercontent.com/26090486/193025178-63467c3b-d2ca-4135-9641-ac46633d4c7b.png)
-
+![Sort Visualiser](https://user-images.githubusercontent.com/26090486/193027127-bff2896b-02d9-4e87-8f83-931ce9fc908b.png)
