@@ -43,9 +43,14 @@ button {
     border-radius: 10px;
     background-color: black;
     color: white;
+    box-shadow: 0 2px white;
 }
 
-
+button:hover {
+    /* background-color: white; */
+    color: lightgreen;
+    box-shadow: 0 2px lightgreen;
+}
 
 /* .buttons_container {
     width: 200px;
@@ -60,8 +65,3 @@ button {
     transition: 0.2s ease-in-out;
 } */
 
-button:hover {
-    /* background-color: #56697b; */
-    background-color: white;
-    color: black;
-}

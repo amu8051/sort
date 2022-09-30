@@ -6,6 +6,8 @@ let insert_sort_btn = document.getElementById('insert_sort_btn');
 let select_sort_btn = document.getElementById('select_sort_btn');
 // console.log(sort_btn, shuffle_btn, 'Buttons!!')
 let bars_container = document.querySelector('.bars_container');
+let buttons_all = document.querySelectorAll('button');
+console.log(buttons_all);
 
 let range_min = 10;
 let range_max = 60;
@@ -32,8 +34,10 @@ bubble_sort_btn.addEventListener("click", bubble);
 quick_sort_btn.addEventListener("click", async function(){
     console.log('Quick Sort clicked!!');
     //   console.log(bars, 'OG Bars!!');
-    
+    disableButtons();
     const arr_sorted= await quick(arr, 0, arr.length -1);
+    await delay(delay_time*40);
+    enableButtons();
     //   console.log(arr_sorted, 'Qsorted Array');
     // var bars = document.getElementsByClassName("bar");
     // for(k=0; k<bars.length; k++){
@@ -52,6 +56,22 @@ function createArray(){
         temp_arr[i] = Math.floor(randomNumber + range_min);
     }
     return temp_arr;
+}
+
+function disableButtons(){
+  console.log('Buttons Disabled!');
+  for(i=0; i<buttons_all.length; i++){
+    buttons_all[i].disabled = !buttons_all[i].disabled;
+    buttons_all[i].style.backgroundColor = 'grey';
+  }
+}
+
+function enableButtons(){
+  console.log('Buttons Enabled!');
+  for(i=0; i<buttons_all.length; i++){
+    buttons_all[i].disabled = !buttons_all[i].disabled;
+    buttons_all[i].style.backgroundColor = 'black';
+  }
 }
 
 function drawBars(array){
@@ -73,11 +93,13 @@ async function bubble(){
     console.log(arr, 'Bubble Sort called!!');
     let bars = document.getElementsByClassName("bar");
 
+    disableButtons();
+
     for(i=0 ; i< length-1 ; i++){
         for(j=0; j< length-i-1; j++){
             bars[j].style.backgroundColor = 'lightgreen';
             bars[j+1].style.backgroundColor = 'lightgreen';
-            await delay(delay_time);
+            await delay(delay_time/2);
 
             if(arr[j] > arr[j+1]){  
                 swapped = true;
@@ -85,17 +107,19 @@ async function bubble(){
 
                 bars[j].style.height = arr[j]*10 +"px";
                 bars[j+1].style.height = arr[j+1]*10 +"px";
-                await delay(delay_time);
+                await delay(delay_time/2);
             }
             
         bars[j].style.backgroundColor = 'white';
         bars[j+1].style.backgroundColor = 'white';
         }
         bars[j].style.backgroundColor = 'lightgreen';
-    }
 
-  bars[0].style.backgroundColor = 'lightgreen';
-//   bars[1].style.backgroundColor = 'lightgreen';
+      }
+      
+      bars[0].style.backgroundColor = 'lightgreen';
+      //   bars[1].style.backgroundColor = 'lightgreen';
+  enableButtons();
   console.log(arr, 'Array Sorted');
 }
 
@@ -107,11 +131,11 @@ async function quick(arr, left , right){
     
     console.log(index, 'partition index!!');
     if(left < index-1){
-       quick(arr, left, index-1);
+      quick(arr, left, index-1);
     }
     
     if(index < right){
-       quick(arr, index+1, right);
+      quick(arr, index+1, right);
     }
   }
   return arr; 
@@ -175,6 +199,7 @@ async function insert(){
     console.log(arr, 'Insertion Sort called!!');
     let bars = document.getElementsByClassName("bar");
 
+    disableButtons();
     for(i=1; i<length; i++){
         let j=i-1; 
         let current = arr[i];
@@ -197,6 +222,7 @@ async function insert(){
         bars[j+1].style.height = current*10 + "px";
         delay(delay_time);
     }
+    enableButtons();
     console.log(arr, 'Array Sorted');
 }
 
@@ -204,7 +230,7 @@ async function select(){
     let length = noOfElements;
     console.log(arr, 'Selection Sort called!!');
     let bars = document.getElementsByClassName("bar");
-
+    disableButtons();
     for(i=0; i<length-1; i++){
         let min = arr[i];
         let min_index = i;
@@ -231,6 +257,7 @@ async function select(){
         await delay(delay_time);
     }
   bars[i].style.backgroundColor = 'lightgreen';
+  enableButtons();
   console.log(arr, 'Array Sorted');
 }
 
